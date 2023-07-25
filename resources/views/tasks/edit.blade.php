@@ -1,9 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<h1>Edit Task: {{ $task->task_name}} </h1>
-
-
 
 <form method="POST" action="{{ route('tasks.update', ['task' => $task->id]) }}">
     @csrf
