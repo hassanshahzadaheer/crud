@@ -51,6 +51,20 @@ php artisan serve
 
 Visit `http://localhost:8000` in your browser to see the list of tasks. From there, you can add new tasks, view task details, edit existing tasks, and delete tasks.
 
+### AJAX-based View and Edit Functionality
+
+We have recently added AJAX-based functionality to improve user experience for viewing and editing tasks:
+
+#### View Task Details
+
+- When you click the "View" button next to a task in the list, a modal will open showing the task details, including the task ID and task name.
+
+#### Edit Task
+
+- When you click the "Edit" button next to a task in the list, a modal will open with an edit form.
+- The form will display the current task name, and you can edit it.
+- Upon clicking the "Save" button in the modal, an AJAX request will be sent to update the task name without refreshing the page.
+
 ### Testing
 
 The repository includes some basic test cases for the `TaskController`. To run the tests, use the following command:
