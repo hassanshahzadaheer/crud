@@ -78,3 +78,7 @@ php artisan test
 The application utilizes Laravel's model factories and database seeding to populate the database with sample data. The `TaskFactory` generates random task names for seeding.
 
 For more information on how to modify or extend the application, refer to the code and comments in the respective files.
+
+### Enjoy Building!
+
+This project provides a simple starting point for building more complex web applications using Laravel. Feel free to explore and enhance it to suit your requirements. Happy coding!
