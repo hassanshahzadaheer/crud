@@ -37,8 +37,18 @@ class Tasks extends Controller
      */
     public function store(Request $request)
     {
+
+        $request->validate([
+               'task_name' => 'required|max:255',
+               'task_description' => 'required',
+               'estimated_time' => 'required'
+           ]);
+
         $task = new Task();
         $task->task_name = $request->task_name;
+        $task->task_description = $request->task_description;
+        $task->task_estimated_time = $request->estimated_time;
+
         $task->save();
         return redirect()->route('tasks.index');
     }
