@@ -88,7 +88,8 @@ class Tasks extends Controller
 
         $task->save();
 
-        return redirect()->route('tasks.show', ['task' => $task->id])->with('success', 'Task updated successfully.');
+        return redirect()->route('tasks.index');
+
     }
 
 
@@ -102,6 +103,7 @@ class Tasks extends Controller
     {
         $task = Task::find($id);
         $task->delete();
-        return redirect()->route('tasks.index');
+        return response()->json(['message' => 'Task deleted successfully']);
+
     }
 }

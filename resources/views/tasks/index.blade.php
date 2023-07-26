@@ -24,7 +24,7 @@
                         <a href="#" class="view-btn" data-taskid="{{ $task->id }}" data-task-name="{{ $task->task_name  }}">View</a>
                         <a  href="#" class="edit-btn text-warning" data-taskid="{{ $task->id }}" data-task-name="{{ $task->task_name  }}">Edit</a>
                         <!-- <a href="{{ route('tasks.edit', ['task' => $task->id]) }}">Edit</a> -->
-                        <a class="text-danger" href="{{ route('tasks.delete', ['task' => $task->id]) }}">Delete</a>
+                        <a href="#" class="delete-btn text-danger" data-taskid="{{ $task->id }}">Delete</a>
                     </td>
                 </tr>
             @endforeach
@@ -71,6 +71,32 @@
         </div>
     </div>
 </div>
+
+
+
+ <!-- Modal for Edit Task -->
+<div class="modal" id="deleteTask" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Are You sure you want to delete this task</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="deleteModalContent">
+                <!-- The edit form will be dynamically loaded here -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
 
     <!-- load js modal -->
     @section('load_modal')
