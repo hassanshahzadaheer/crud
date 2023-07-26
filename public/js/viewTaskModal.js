@@ -1,4 +1,26 @@
 $(document).ready(function () {
+
+    // add new task
+
+    $(".create-task").click(function() {
+        console.log("add button has been pressed");
+
+        $.ajax({
+            url: `/tasks/create`,
+            method: "GET",
+            success: function(renderAddForm) {
+                $("#addModalContent").html(renderAddForm);
+            },
+            error: function(xhr,status,error) {
+                console.log(error);
+            }
+        });
+
+        $("#addTaskModal").show();
+    });
+
+
+
     // view task detail
     $(".view-btn").click(function () {
         var taskId = $(this).data("taskid");

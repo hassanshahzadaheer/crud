@@ -3,7 +3,7 @@
 @section('content')
     <div class="d-flex justify-content-between align-items-center">
         <h1 class="text-left">Task Details</h1>
-        <a href="{{ route('tasks.create') }}" class="btn btn-success">
+        <a href="#" class="create-task btn btn-success" >
             Create New Task <i class="bi bi-plus"></i>
         </a>
     </div>
@@ -23,13 +23,35 @@
                     <td>
                         <a href="#" class="view-btn" data-taskid="{{ $task->id }}" data-task-name="{{ $task->task_name  }}">View</a>
                         <a  href="#" class="edit-btn text-warning" data-taskid="{{ $task->id }}" data-task-name="{{ $task->task_name  }}">Edit</a>
-                        <!-- <a href="{{ route('tasks.edit', ['task' => $task->id]) }}">Edit</a> -->
                         <a href="#" class="delete-btn text-danger" data-taskid="{{ $task->id }}">Delete</a>
                     </td>
                 </tr>
             @endforeach
         </tbody>
     </table>
+
+
+      <!-- Modal for add Task -->
+<div class="modal" id="addTaskModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Create a new Task</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="addModalContent">
+                <!-- The edit form will be dynamically loaded here -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 
     <!-- Modal for Task Details -->
     <div class="modal" id="viewTaskModal" tabindex="-1" role="dialog">
