@@ -116,4 +116,12 @@ class Tasks extends Controller
         return response()->json(['message' => 'Task deleted successfully']);
 
     }
+
+    // In your TasksController, add the getSubtasks method to fetch sub-tasks
+public function getSubtasks($taskId)
+{
+    $task = Task::findOrFail($taskId);
+    $subtasks = $task->subtasks;
+    return $subtasks;
+}
 }

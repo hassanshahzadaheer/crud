@@ -24,6 +24,26 @@ $(document).ready(function () {
         var taskId = $(this).data("taskid");
         var taskName = $(this).data("task-name");
         var content = `Task # ${taskId} <br> Task: ${taskName}`;
+
+        $.ajax({
+            url: `/tasks/${taskId}/subtasks`,
+            method: "GET",
+            success: function (data) {
+                var content = `Task # ${taskId} <br> Task: ${taskName} <br><br> Sub-Tasks: <ul>`;
+                data.forEach(function (subtask) {
+                    content += `<li>${subtask.sub_task_name}</li>`;
+                });
+                content += `</ul>`;
+                // Update the modal content and show the modal
+                $("#taskModalContent").html(content);
+                $("#viewTaskModal").modal("show");
+            },
+            error: function (xhr, status, error) {
+                console.log(error);
+            },
+        });
+
+
         $("#taskModalContent").html(content);
         $("#viewTaskModal").modal("show");
     });
