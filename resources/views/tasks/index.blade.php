@@ -19,7 +19,17 @@
             @foreach($tasks as $task)
                 <tr>
                     <th scope="row">{{ $task->id }}</th>
-                    <td>{{ $task->task_name }}</td>
+                    <td>
+                        <details>
+                            <summary>{{ $task->task_name }}</summary>
+                                <ul>
+        @foreach($task->subtasks as $subtask)
+            <li>{{ $subtask->sub_task_name }}</li>
+        @endforeach
+    </ul>
+                        </details>
+
+                    </td>
                     <td>
                         <a href="#" class="view-btn" data-taskid="{{ $task->id }}" data-task-name="{{ $task->task_name  }}">View</a>
                         <a  href="#" class="edit-btn text-warning" data-taskid="{{ $task->id }}" data-task-name="{{ $task->task_name  }}">Edit</a>

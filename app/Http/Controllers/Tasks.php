@@ -15,7 +15,7 @@ class Tasks extends Controller
      */
     public function index()
     {
-        $tasks = Task::all();
+        $tasks = Task::with('subtasks')->get();
         return view("tasks.index", compact('tasks'));
     }
 
