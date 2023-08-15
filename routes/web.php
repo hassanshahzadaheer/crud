@@ -28,3 +28,7 @@ Route::get('/tasks/{task}/subtasks', [Tasks::class, 'getSubtasks']);
 
 
 // sub tasks
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
